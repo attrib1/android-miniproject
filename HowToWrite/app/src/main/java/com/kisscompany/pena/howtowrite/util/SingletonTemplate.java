@@ -2,7 +2,8 @@ package com.kisscompany.pena.howtowrite.util;
 
 import android.content.Context;
 
-import com.inthecheesefactory.thecheeselibrary.manager.Contextor;
+import com.kisscompany.pena.howtowrite.manager.Contextor;
+
 
 /**
  * Created by nuuneoi on 11/16/2014.

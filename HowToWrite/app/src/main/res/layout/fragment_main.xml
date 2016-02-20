@@ -1,82 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <LinearLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageView
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:id="@+id/Img"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/mock" />
+                android:layout_height="0dp"
+                android:layout_weight="3">
 
-        </android.support.v7.widget.CardView>
+                <com.kisscompany.pena.howtowrite.view.PhotoCustom
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </android.support.v7.widget.CardView>
 
 
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="23dp"
-            android:layout_weight="3">
-
-            <LinearLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="13dp">
+                android:layout_height="0dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="23dp"
+                android:layout_weight="3">
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right|top"
-                    android:src="@drawable/ic_cached_black_24dp" />
-
-                <android.support.design.widget.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="18dp">
+                    android:orientation="vertical"
+                    android:padding="13dp">
 
-                    <EditText
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/img_anw"
+                            android:layout_alignParentLeft="true"
+                            android:layout_width="wrap_content"
+                            android:src="@drawable/ic_check_circle_black_24dp"
+                            android:layout_height="wrap_content" />
+
+                        <ImageView
+                            android:layout_alignParentRight="true"
+                            android:id="@+id/img_ref"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right|top"
+                            android:src="@drawable/ic_cached_black_24dp" />
+                    </RelativeLayout>
+
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="What is this ?" />
+                        android:layout_marginTop="18dp">
 
-                </android.support.design.widget.TextInputLayout>
+                        <EditText
+                            android:id="@+id/edt_anw"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="What is this ?"
+                            android:imeOptions="actionDone"
+                            android:inputType="text" />
 
-                <mehdi.sakout.fancybuttons.FancyButton
-                    android:id="@+id/btn_preview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginBottom="16.5dp"
-                    android:layout_marginTop="24.50dp"
-                    android:elevation="3dp"
-                    android:padding="13dp"
-                    fancy:fb_defaultColor="#f6846a"
-                    fancy:fb_focusColor="#67b0d6"
-                    fancy:fb_radius="3dp"
-                    fancy:fb_text="ANSWER"
-                    fancy:fb_textColor="#f8f8f8" />
 
-            </LinearLayout>
+                    </android.support.design.widget.TextInputLayout>
 
-        </android.support.v7.widget.CardView>
+                    <Button
+                        android:id="@+id/btn_anw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="16.5dp"
+                        android:layout_marginTop="24.50dp"
+                        android:background="@drawable/button_effect"
+                        android:elevation="3dp"
+                        android:padding="13dp"
+                        android:text="ANSWER"
+                        android:textColor="#f8f8f8" />
 
-    </LinearLayout>
 
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

@@ -2,36 +2,45 @@ package com.kisscompany.pena.howtowrite.util;
 
 import android.content.Context;
 
-import com.inthecheesefactory.thecheeselibrary.manager.Contextor;
+import com.kisscompany.pena.howtowrite.manager.Contextor;
+
+import java.util.Random;
+
 
 /**
  * Created by nuuneoi on 11/16/2014.
  */
 public class RandomNumber {
-    private int Max,Min;
 
-    private static RandomNumber instance;
+    private int Min=0,Max=3;
+
+
+/*    private static RandomNumber instance;
 
     public static RandomNumber getInstance() {
         if (instance == null)
             instance = new RandomNumber();
         return instance;
-    }
+    }*/
 
-    private Context mContext;
+    //private Context mContext;
 
-    private RandomNumber() {
-        mContext = Contextor.getInstance().getContext();
-    }
+    /*public RandomNumber() {
+        //mContext = Contextor.getInstance().getContext();
+    }*/
 
-    public void setRanDomNumber(int Max,int Min){
-        this.Max = Max;
-        this.Min = Min;
+/*
+    public void setRanDomNumber(int max,int min){
+        Max = max+1;
+        Min = min;
     }
+*/
 
     public int getRanDomNumber(){
-        //Min + (int)(Math.random() * ((Max - Min) + 1))
-        int ranPst = Min + (int)(Math.random() * ((Max - Min) + 1));
+        Random rand = new Random();
+
+        int ranPst = rand.nextInt((Max - Min) + 1) + Min;
+
         return ranPst;
     }
 
