@@ -8,6 +8,6 @@
         android:id="@+id/Img"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/mock" />
+        android:src="@drawable/dog" />
 
 </LinearLayout>

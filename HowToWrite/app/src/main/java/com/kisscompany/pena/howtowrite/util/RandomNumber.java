@@ -12,7 +12,7 @@ import java.util.Random;
  */
 public class RandomNumber {
 
-    private int Min=0,Max=3;
+    private int Min=0,Max=9;
 
 
 /*    private static RandomNumber instance;

@@ -53,20 +53,35 @@ public class DataList {
 
     /// Set Data
     private void setDataImg() {
-        dataImg.add(R.drawable.mock);
-        dataImg.add(R.drawable.dog);
 
-        dataImg.add(R.drawable.mock);
+        dataImg.add(R.drawable.cat);
         dataImg.add(R.drawable.dog);
+        dataImg.add(R.drawable.fork);
+        dataImg.add(R.drawable.giraffe);
+        dataImg.add(R.drawable.hill);
+        dataImg.add(R.drawable.monkey);
+        dataImg.add(R.drawable.plane);
+        dataImg.add(R.drawable.rhinoceros);
+        dataImg.add(R.drawable.rocket);
+        dataImg.add(R.drawable.spoon);
+
+
 
     }
 
     private void setDataName() {
-        dataName.add("amsterdam");
-        dataName.add("dog");
 
-        dataName.add("amsterdam");
+        dataName.add("cat");
         dataName.add("dog");
+        dataName.add("fork");
+        dataName.add("giraffe");
+        dataName.add("hill");
+        dataName.add("monkey");
+        dataName.add("plane");
+        dataName.add("rhinoceros");
+        dataName.add("rocket");
+        dataName.add("spoon");
+
 
     }
 

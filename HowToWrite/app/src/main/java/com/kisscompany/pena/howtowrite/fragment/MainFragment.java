@@ -2,9 +2,7 @@ package com.kisscompany.pena.howtowrite.fragment;
 
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.widget.EdgeEffectCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -19,8 +18,7 @@ import com.kisscompany.pena.howtowrite.R;
 import com.kisscompany.pena.howtowrite.manager.Contextor;
 import com.kisscompany.pena.howtowrite.util.DataList;
 import com.kisscompany.pena.howtowrite.util.RandomNumber;
-
-import java.util.ArrayList;
+import com.kisscompany.pena.howtowrite.util.SharedPre;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
@@ -38,6 +36,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private ImageView img_ref;
     private ImageView img_anw;
     private RandomNumber ranPst;
+    private SharedPre sc;
+    private TextView tv_sc;
+    private TextView tv_reset;
 
 
     public MainFragment() {
@@ -66,6 +67,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     private void initInstances(View rootView) {
         data = new DataList();
         ranPst = new RandomNumber();
+        sc = new SharedPre(getActivity());
         data.setData();
         // init instance with rootView.findViewById here
         img = (ImageView) rootView.findViewById(R.id.Img);
@@ -73,11 +75,15 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         btn_awn = (Button) rootView.findViewById(R.id.btn_anw);
         img_ref = (ImageView) rootView.findViewById(R.id.img_ref);
         img_anw = (ImageView) rootView.findViewById(R.id.img_anw);
+        tv_sc = (TextView) rootView.findViewById(R.id.tv_sc);
+        tv_reset = (TextView) rootView.findViewById(R.id.tv_reset);
+
         img_ref.setOnClickListener(this);
         btn_awn.setOnClickListener(this);
         img_anw.setOnClickListener(this);
+        tv_reset.setOnClickListener(this);
 
-
+        tv_sc.setText("" + sc.getScore());
         rnum = ranPst.getRanDomNumber();
         Log.d("dddd : ", "" + rnum);
 
@@ -97,7 +103,7 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             try {
                 strAwn = data.getDataName(rnum);
             } catch (IndexOutOfBoundsException e) {
-                Log.d("setData","start");
+                Log.d("setData", "start");
                 data.setData();
                 strAwn = data.getDataName(rnum);
             }
@@ -106,6 +112,9 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             if (edtAwn.trim().equalsIgnoreCase("" + strAwn.trim())) {
                 MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.correct);
                 mp.start();
+                sc.setScore();
+                tv_sc.setText("" + sc.getScore());
+                Toast.makeText(getActivity(), "คะแนน " + sc.getScore(), Toast.LENGTH_SHORT).show();
                 new SweetAlertDialog(getActivity(), SweetAlertDialog.SUCCESS_TYPE)
                         .setTitleText("Good job!")
                         .setContentText("Click on the button to continue.")
@@ -115,16 +124,16 @@ public class MainFragment extends Fragment implements View.OnClickListener {
 
                                 sweetAlertDialog.cancel();
                                 edt_awn.setText("");
-                                 ranPst = new RandomNumber();
+                                ranPst = new RandomNumber();
                                 rnum = ranPst.getRanDomNumber();
                                 img.setImageResource(data.getDataImg(rnum));
-
                             }
                         })
                         .show();
             } else {
                 MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.uncurrect);
                 mp.start();
+
                 new SweetAlertDialog(getActivity(), SweetAlertDialog.WARNING_TYPE)
                         .setTitleText("Are you sure?")
                         .setContentText("You are wrong ,Please try again.")
@@ -152,6 +161,10 @@ public class MainFragment extends Fragment implements View.OnClickListener {
             MediaPlayer mp = MediaPlayer.create(getActivity(), R.raw.answer);
             mp.start();
             edt_awn.setText("" + data.getDataName(rnum).trim());
+        }
+        if (v == tv_reset) {
+            sc.reSetScore();
+            tv_sc.setText("" + sc.getScore());
         }
 
 

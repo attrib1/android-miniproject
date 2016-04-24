@@ -38,22 +38,45 @@
                     android:orientation="vertical"
                     android:padding="13dp">
 
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <ImageView
-                            android:id="@+id/img_anw"
-                            android:layout_alignParentLeft="true"
+                        <LinearLayout
                             android:layout_width="wrap_content"
-                            android:src="@drawable/ic_check_circle_black_24dp"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true">
+
+                            <TextView
+                                android:id="@+id/sc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="คะแนน:  " />
+
+                            <TextView
+                                android:id="@+id/tv_sc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_toRightOf="@+id/sc"
+                                android:text="" />
+
+                        </LinearLayout>
+
 
                         <ImageView
-                            android:layout_alignParentRight="true"
+                            android:id="@+id/img_anw"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:src="@drawable/ic_check_circle_black_24dp" />
+
+                        <ImageView
                             android:id="@+id/img_ref"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
                             android:layout_gravity="right|top"
                             android:src="@drawable/ic_cached_black_24dp" />
                     </RelativeLayout>
@@ -86,6 +109,13 @@
                         android:padding="13dp"
                         android:text="ANSWER"
                         android:textColor="#f8f8f8" />
+
+                    <TextView
+                        android:id="@+id/tv_reset"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left"
+                        android:text="Reset Score" />
 
 
                 </LinearLayout>
