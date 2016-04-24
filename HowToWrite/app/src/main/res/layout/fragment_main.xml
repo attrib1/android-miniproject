@@ -90,6 +90,7 @@
                             android:id="@+id/edt_anw"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:freezesText="true"
                             android:hint="What is this ?"
                             android:imeOptions="actionDone"
                             android:inputType="text" />

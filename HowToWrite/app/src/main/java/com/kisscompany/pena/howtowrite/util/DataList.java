@@ -32,7 +32,7 @@ public class DataList {
 
     }*/
 
-    public void  setData(){
+    public void setData() {
         setDataImg();
         setDataName();
     }
@@ -41,7 +41,7 @@ public class DataList {
         String data = dataName.get(pst);
         try {
             data = dataName.get(pst);
-        }catch (Throwable e){
+        } catch (Throwable e) {
 
         }
         return data;
@@ -66,7 +66,6 @@ public class DataList {
         dataImg.add(R.drawable.spoon);
 
 
-
     }
 
     private void setDataName() {
@@ -88,7 +87,7 @@ public class DataList {
     public void desData() {
         dataImg.removeAll(dataImg);
         dataName.removeAll(dataName);
-        Log.d("size",dataImg.size()+"");
+        Log.d("size", dataImg.size() + "");
     }
 
 

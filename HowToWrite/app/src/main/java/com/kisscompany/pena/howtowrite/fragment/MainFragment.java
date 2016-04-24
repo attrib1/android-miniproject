@@ -59,12 +59,13 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
         Log.d("onCreate", "start");
-        initInstances(rootView);
+        initInstances(rootView, savedInstanceState);
+
 
         return rootView;
     }
 
-    private void initInstances(View rootView) {
+    private void initInstances(View rootView, Bundle savedInstanceState) {
         data = new DataList();
         ranPst = new RandomNumber();
         sc = new SharedPre(getActivity());
@@ -84,12 +85,16 @@ public class MainFragment extends Fragment implements View.OnClickListener {
         tv_reset.setOnClickListener(this);
 
         tv_sc.setText("" + sc.getScore());
-        rnum = ranPst.getRanDomNumber();
-        Log.d("dddd : ", "" + rnum);
 
-        img.setImageResource(data.getDataImg(rnum));
-
-
+        if (savedInstanceState == null) {
+            Log.d("dddd : ", "null savedInstanceState");
+            rnum = ranPst.getRanDomNumber();
+            img.setImageResource(data.getDataImg(rnum));
+        } else {
+            rnum = savedInstanceState.getInt("rnum");
+            Log.d("dddd : else ", "" + rnum);
+            img.setImageResource(data.getDataImg(rnum));
+        }
     }
 
     @Override
@@ -200,6 +205,8 @@ public class MainFragment extends Fragment implements View.OnClickListener {
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         // Save Instance State here
+        outState.putInt("rnum", rnum);
+        Log.d("dd", "onSaveInstanceState  : " + rnum);
     }
 
     /*
